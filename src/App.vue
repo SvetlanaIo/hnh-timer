@@ -1,16 +1,25 @@
 <template>
   <div id="app">
-    <c-timer @addTimer="onAddTimer"></c-timer>
-    <ul v-for="(timer, index) in timerList" :key="index">
-      <li>
-        <span>
-          {{ timer.name }}
-        </span>
-        <span>
-          {{ timer.time }}
-        </span>
-      </li>
-    </ul>
+    <b-container fluid>
+      <h1 class="page-title">Таймеры</h1>
+      <section class="section">
+        <c-timer @addTimer="onAddTimer"></c-timer>
+      </section>
+      <section class="section timer-list">
+        <h3>Список таймеров</h3>
+        <b-list-group v-if="timerList.length">
+          <b-list-group-item v-for="(timer, index) in timerList" :key="index">
+            <span>
+              {{ timer.name }}
+            </span>
+            <span>
+              {{ timer.time }}
+            </span>
+          </b-list-group-item>
+        </b-list-group>
+        <span v-else>Список таймеров пуст</span>
+      </section>
+    </b-container>
   </div>
 </template>
 
@@ -26,18 +35,15 @@ import Timer from "@/components/c-timer.vue";
   },
 })
 export default class App extends Vue {
-  // public timer =
   public timerList: TimerModel[] = [];
 
-  // protected created(): void {}
-  public onAddTimer(timer: any) {
-    console.log(timer);
+  public onAddTimer(timer: TimerModel) {
     this.timerList.push(timer);
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .material-icons {
   font-family: "Material Icons";
   font-weight: normal;
@@ -54,4 +60,22 @@ export default class App extends Vue {
   -webkit-font-smoothing: antialiased;
 }
 @import "../src/assets/nprogress.css";
+
+.container-fluid {
+  max-width: 1200px;
+}
+
+.section {
+  & + & {
+    margin-top: 40px;
+  }
+}
+
+.page-title {
+  margin: 24px 0;
+}
+
+.list-group {
+  margin-top: 16px;
+}
 </style>
