@@ -1,0 +1,53 @@
+{
+  // Соблюдать чистоту оформления
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Исправлять импорты по сохранению
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+
+  "editor.rulers": [
+    { "column": 80, "color": "#ff9900" },
+    { "column": 120, "color": "#ff0000" }
+  ],
+
+  // Пользоваться встроенным в проект SDK
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Не осуществлять навигацию по скомпилированным данным
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/*.map": { "when": "$(basename).map" }
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/*.map": { "when": "$(basename).map" }
+  },
+
+  // Для форматирования typescript, javascript, vue и json использовать Prettier
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
+}
