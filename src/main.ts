@@ -3,6 +3,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "reflect-metadata";
 import Vue from "vue";
+import Moment from "vue-moment";
 import VueTypeScriptInject from "vue-typescript-inject";
 import App from "./App.vue";
 
@@ -22,6 +23,7 @@ class Application {
     Vue.config.productionTip = false;
     Vue.use(BootstrapVue);
     Vue.use(VueTypeScriptInject);
+    Vue.use(Moment);
   }
 }
 
