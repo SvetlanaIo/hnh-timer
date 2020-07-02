@@ -1,4 +1,5 @@
 export type TimerModel = {
+  // timerId: Number;
   name: String;
-  time: Date;
+  time: Number;
 };

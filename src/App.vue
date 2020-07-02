@@ -34,10 +34,18 @@ import Timer from "@/components/c-timer.vue";
     "c-timer": Timer,
   },
 })
-export default class App extends Vue {
-  public timerList: TimerModel[] = [];
+export default class PageTimer extends Vue {
+  private timerList: TimerModel[] = [];
 
-  public onAddTimer(timer: TimerModel) {
+  private onAddTimer(timer: TimerModel) {
+    const timerExists = this.timerList.any<TimerModel>(
+      (val) => val.name == timer.name,
+    );
+
+    if (timerExists) {
+      return;
+    }
+
     this.timerList.push(timer);
   }
 }

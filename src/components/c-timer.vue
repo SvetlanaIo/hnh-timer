@@ -12,11 +12,11 @@
       ></b-col>
       <b-col>
         <div class="form-group">
-          <label for="timerTime">Время окончания</label>
+          <label for="timerTime">Время</label>
           <b-form-input
             v-model="timer.time"
             id="timerTime"
-            placeholder="Введите время в формате HH:MM:SS"
+            placeholder="Введите количество часов"
           ></b-form-input></div
       ></b-col>
     </b-row>
@@ -27,16 +27,20 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { TimerModel } from "@/models/timer-models";
+import _ from "lodash";
 
 @Component({})
-export default class App extends Vue {
-  public timer = {
-    name: "Default",
-    time: new Date(),
+export default class Timer extends Vue {
+  //@TODO: Требует обязательно айдишник
+  private timer = {
+    // timerId: 0,
+    name: "Таймер",
+    time: 0,
   } as TimerModel;
 
-  public addTimer() {
-    this.$emit("addTimer", this.timer);
+  private addTimer() {
+    const newTimer = _.cloneDeep(this.timer);
+    this.$emit("addTimer", newTimer);
   }
 }
 </script>

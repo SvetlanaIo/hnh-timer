@@ -1,6 +1,10 @@
+import "@/utils/array-helpers";
+import "@/utils/random-helpers";
+import "@/utils/string-helpers";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/css/bootstrap.css";
+import _ from "lodash";
 import "reflect-metadata";
 import Vue from "vue";
 import Moment from "vue-moment";
@@ -24,6 +28,7 @@ class Application {
     Vue.use(BootstrapVue);
     Vue.use(VueTypeScriptInject);
     Vue.use(Moment);
+    Vue.prototype._ = _;
   }
 }
 
