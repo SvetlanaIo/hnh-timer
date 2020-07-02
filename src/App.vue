@@ -37,16 +37,27 @@ import Timer from "@/components/c-timer.vue";
 export default class PageTimer extends Vue {
   private timerList: TimerModel[] = [];
 
+  protected created(): void {
+    const storeTimerList = JSON.parse(
+      localStorage.getItem("timerList") || "{}",
+    );
+
+    storeTimerList.forEach((timer: TimerModel) => {
+      this.timerList.push(timer);
+    });
+  }
+
   private onAddTimer(timer: TimerModel) {
     const timerExists = this.timerList.any<TimerModel>(
       (val) => val.name == timer.name,
     );
 
     if (timerExists) {
-      return;
+      alert(`Таймер с названием ${timer.name} уже существует`);
     }
 
     this.timerList.push(timer);
+    localStorage.setItem("timerList", JSON.stringify(this.timerList));
   }
 }
 </script>
