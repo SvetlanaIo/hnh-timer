@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <b-container fluid>
-      <h1 class="page-title">Таймеры</h1>
+      <h1 class="page-title">Timers</h1>
       <section class="section">
         <c-timer @addTimer="onAddTimer"></c-timer>
       </section>
       <section class="section timer-list">
-        <h3>Список таймеров</h3>
+        <h3>Timers list</h3>
         <b-list-group v-if="timerList.length">
           <b-list-group-item v-for="(timer, index) in timerList" :key="index">
             <span>
@@ -15,6 +15,12 @@
             <span>
               {{ timer.time }}
             </span>
+            <b-button variant="light"
+              ><span class="material-icons">play_arrow</span></b-button
+            >
+            <b-button variant="light"
+              ><span class="material-icons">pause</span></b-button
+            >
           </b-list-group-item>
         </b-list-group>
         <span v-else>Список таймеров пуст</span>
@@ -54,6 +60,7 @@ export default class PageTimer extends Vue {
 
     if (timerExists) {
       alert(`Таймер с названием ${timer.name} уже существует`);
+      return;
     }
 
     this.timerList.push(timer);

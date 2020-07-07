@@ -3,24 +3,24 @@
     <b-row>
       <b-col>
         <div class="form-group">
-          <label for="timerName">Название таймера</label>
+          <label for="timerName">Timer name</label>
           <b-form-input
             v-model="timer.name"
             id="timerName"
-            placeholder="Введите название"
+            placeholder="Enter the timer name"
           ></b-form-input></div
       ></b-col>
       <b-col>
         <div class="form-group">
-          <label for="timerTime">Время</label>
+          <label for="timerTime">Time</label>
           <b-form-input
             v-model="timer.time"
             id="timerTime"
-            placeholder="Введите количество часов"
+            placeholder="Enter the formatted time HH:MM:SS"
           ></b-form-input></div
       ></b-col>
     </b-row>
-    <b-button variant="primary" @click="addTimer()">Добавить таймер</b-button>
+    <b-button variant="primary" @click="addTimer()">Add timer</b-button>
   </div>
 </template>
 <script lang="ts">
@@ -34,8 +34,8 @@ export default class Timer extends Vue {
   //@TODO: Требует обязательно айдишник
   private timer = {
     // timerId: 0,
-    name: "Таймер",
-    time: 0,
+    name: "Timer",
+    time: "",
   } as TimerModel;
 
   private addTimer() {
