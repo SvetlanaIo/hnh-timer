@@ -36,6 +36,7 @@ export default class Timer extends Vue {
     // timerId: 0,
     name: "Timer",
     time: "",
+    type: "Other",
   } as TimerModel;
 
   private addTimer() {
