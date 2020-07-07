@@ -15,11 +15,14 @@
             <span>
               {{ timer.time }}
             </span>
-            <b-button variant="light"
+            <b-button variant="light" @click="startTimer(timer.time)"
               ><span class="material-icons">play_arrow</span></b-button
             >
             <b-button variant="light"
               ><span class="material-icons">pause</span></b-button
+            >
+            <b-button variant="light"
+              ><span class="material-icons">stop</span></b-button
             >
           </b-list-group-item>
         </b-list-group>
@@ -65,6 +68,10 @@ export default class PageTimer extends Vue {
 
     this.timerList.push(timer);
     localStorage.setItem("timerList", JSON.stringify(this.timerList));
+  }
+
+  private startTimer(time: string) {
+    console.log(time);
   }
 }
 </script>
