@@ -1,3 +1,4 @@
+import Router from "@/router/router";
 import "@/utils/array-helpers";
 import "@/utils/random-helpers";
 import "@/utils/string-helpers";
@@ -18,6 +19,7 @@ class Application {
     this.init();
 
     this.instance = new Vue({
+      router: Router,
       render: (h) => h(App),
     });
     this.instance.$mount("#app");
